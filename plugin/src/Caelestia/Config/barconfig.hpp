@@ -58,6 +58,7 @@ class BarWorkspaces : public ConfigObject {
             { u"regex"_s, u"steam(_app_(default|[0-9]+))?"_s },
             { u"icon"_s, u"sports_esports"_s },
         }) })
+    CONFIG_PROPERTY(bool, hideEmptyWorkspaces, false)
 
 public:
     explicit BarWorkspaces(QObject* parent = nullptr)

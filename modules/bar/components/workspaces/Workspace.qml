@@ -24,8 +24,10 @@ ColumnLayout {
     readonly property bool isOccupied: occupied[ws] ?? false
     readonly property bool hasWindows: isOccupied && Config.bar.workspaces.showWindows
 
+    visible: root.isOccupied || root.activeWsId === root.ws || !Config.bar.workspaces.hideEmptyWorkspaces
+    Layout.preferredHeight: visible ? size : 0
+
     Layout.alignment: Qt.AlignHCenter
-    Layout.preferredHeight: size
 
     spacing: 0
 
@@ -46,10 +48,11 @@ ColumnLayout {
                 displayName = displayName.toLowerCase();
             }
             const label = Config.bar.workspaces.label || displayName;
-            const occupiedLabel = Config.bar.workspaces.occupiedLabel || label;
-            const activeLabel = Config.bar.workspaces.activeLabel || (root.isOccupied ? occupiedLabel : label);
+            const occupiedLabel = Config.bar.workspaces.occupiedLabel || displayName;
+            const activeLabel = Config.bar.workspaces.activeLabel || displayName;
             return root.activeWsId === root.ws ? activeLabel : root.isOccupied ? occupiedLabel : label;
         }
+        font.family: /^\d+$/.test(text) ? Tokens.font.family.mono : Tokens.font.family.sans
         color: Config.bar.workspaces.occupiedBg || root.isOccupied || root.activeWsId === root.ws ? Colours.palette.m3onSurface : Colours.layer(Colours.palette.m3outlineVariant, 2)
         verticalAlignment: Qt.AlignVCenter
     }
