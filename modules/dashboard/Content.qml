@@ -11,6 +11,7 @@ import qs.components.filedialog
 Item {
     id: root
 
+    required property ShellScreen screen
     required property DrawerVisibilities visibilities
     readonly property bool needsKeyboard: {
         const count = repeater.count;
@@ -31,6 +32,12 @@ Item {
                 iconName: "dashboard",
                 text: qsTr("Dashboard"),
                 enabled: Config.dashboard.showDashboard
+            },
+            {
+                component: overviewComponent,
+                iconName: "grid_view",
+                text: qsTr("Overview"),
+                enabled: Config.dashboard.showOverview ?? true
             },
             {
                 component: mediaComponent,
@@ -189,6 +196,14 @@ Item {
                 id: weatherComponent
 
                 WeatherTab {}
+            }
+
+            Component {
+                id: overviewComponent
+
+                OverviewTab {
+                    screen: root.screen
+                }
             }
 
             Behavior on contentX {

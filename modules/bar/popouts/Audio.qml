@@ -95,6 +95,7 @@ Item {
                 implicitHeight: parent.implicitHeight
 
                 value: Audio.volume
+                to: GlobalConfig.services.maxVolume
                 onMoved: Audio.setVolume(value)
 
                 Behavior on value {

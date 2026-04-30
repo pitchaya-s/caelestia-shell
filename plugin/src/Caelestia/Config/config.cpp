@@ -10,6 +10,7 @@
 #include "lockconfig.hpp"
 #include "monitorconfigmanager.hpp"
 #include "notifsconfig.hpp"
+#include "overviewconfig.hpp"
 #include "osdconfig.hpp"
 #include "serviceconfig.hpp"
 #include "sessionconfig.hpp"
@@ -43,6 +44,7 @@ GlobalConfig::GlobalConfig(QObject* parent)
     , m_controlCenter(new ControlCenterConfig(this))
     , m_launcher(new LauncherConfig(this))
     , m_notifs(new NotifsConfig(this))
+    , m_overview(new OverviewConfig(this))
     , m_osd(new OsdConfig(this))
     , m_session(new SessionConfig(this))
     , m_winfo(new WInfoConfig(this))
@@ -65,6 +67,7 @@ GlobalConfig::GlobalConfig(GlobalConfig* fallback, const QString& filePath, cons
     , m_controlCenter(new ControlCenterConfig(this))
     , m_launcher(new LauncherConfig(this))
     , m_notifs(new NotifsConfig(this))
+    , m_overview(new OverviewConfig(this))
     , m_osd(new OsdConfig(this))
     , m_session(new SessionConfig(this))
     , m_winfo(new WInfoConfig(this))

@@ -11,6 +11,7 @@ import qs.utils
 Item {
     id: root
 
+    required property ShellScreen screen
     required property DrawerVisibilities visibilities
     readonly property bool needsKeyboard: (content.item as Content)?.needsKeyboard ?? false
     readonly property DashboardState dashState: DashboardState {
@@ -53,6 +54,7 @@ Item {
         active: root.shouldBeActive || root.visible
 
         sourceComponent: Content {
+            screen: root.screen
             visibilities: root.visibilities
             dashState: root.dashState
             facePicker: root.facePicker

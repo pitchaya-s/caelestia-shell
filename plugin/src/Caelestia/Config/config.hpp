@@ -16,6 +16,7 @@ class GeneralConfig;
 class LauncherConfig;
 class LockConfig;
 class NotifsConfig;
+class OverviewConfig;
 class OsdConfig;
 class ServiceConfig;
 class SessionConfig;
@@ -38,6 +39,7 @@ class GlobalConfig : public RootConfig {
     Q_MOC_INCLUDE("launcherconfig.hpp")
     Q_MOC_INCLUDE("lockconfig.hpp")
     Q_MOC_INCLUDE("notifsconfig.hpp")
+    Q_MOC_INCLUDE("overviewconfig.hpp")
     Q_MOC_INCLUDE("osdconfig.hpp")
     Q_MOC_INCLUDE("serviceconfig.hpp")
     Q_MOC_INCLUDE("sessionconfig.hpp")
@@ -56,6 +58,7 @@ class GlobalConfig : public RootConfig {
     CONFIG_SUBOBJECT(ControlCenterConfig, controlCenter)
     CONFIG_SUBOBJECT(LauncherConfig, launcher)
     CONFIG_SUBOBJECT(NotifsConfig, notifs)
+    CONFIG_SUBOBJECT(OverviewConfig, overview)
     CONFIG_SUBOBJECT(OsdConfig, osd)
     CONFIG_SUBOBJECT(SessionConfig, session)
     CONFIG_SUBOBJECT(WInfoConfig, winfo)
